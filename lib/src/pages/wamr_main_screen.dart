@@ -10,7 +10,8 @@ class WamrMainScreen extends StatefulWidget {
 
 class _WamrMainScreenState extends State<WamrMainScreen> {
   bool circularStateMode = true;
-
+  String headerTitle = 'Historial Notificaciones';
+ 
   @override
   Widget build(BuildContext context) {
     var textStyles = Theme.of(context).textTheme;
@@ -20,7 +21,7 @@ class _WamrMainScreenState extends State<WamrMainScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Historial de notificaciones',
+            headerTitle,
           ),
           actions: <Widget>[
             buildPopupMenu(),
@@ -57,8 +58,21 @@ class _WamrMainScreenState extends State<WamrMainScreen> {
   }
 
   TabBar buildTabBar() {
+    final headers = {
+      0: 'Historial Notificaciones',
+      1: 'Multimedia eliminada',
+      2: 'Descargar estado'
+    };
+
     return TabBar(
       indicatorColor: Colors.white,
+      onTap: (int index){
+          headerTitle = headers[index];
+          setState(() {
+            
+          });
+        
+      },
       tabs: <Widget>[
         Padding(
           padding: const EdgeInsets.all(8.0),

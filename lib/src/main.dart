@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wamr_clone/src/pages/help_screen.dart';
 
 import 'pages/wamr_main_screen.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Practice 1",
-      home: WamrMainScreen(),
+      // home: WamrMainScreen(),
       theme: ThemeData(
         primaryColor: Color(0xFF075e54),
         textTheme: TextTheme(
@@ -28,6 +29,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
+      initialRoute: 'main',
+      routes: {
+        'main': (context)=> WamrMainScreen(),
+        'help': (context) => HelpScreen()
+      },
     );
   }
 }

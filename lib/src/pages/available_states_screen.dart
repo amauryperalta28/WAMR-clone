@@ -8,7 +8,7 @@ class AvailableStatesScreen extends StatefulWidget {
 }
 
 class _AvailableStatesScreenState extends State<AvailableStatesScreen> {
-   bool circularStateMode = true;
+  bool circularStateMode = true;
 
   @override
   Widget build(BuildContext context) {

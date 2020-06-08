@@ -8,7 +8,7 @@ class DeletedMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return ListTile(onTap: (){},
       title: Text(
         _message.sender,
         style: TextStyle(

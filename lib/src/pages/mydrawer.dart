@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wamr_clone/src/pages/monitored_applications.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -14,7 +15,7 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           buildDrawerHeader(),
-          MonitoredApplications(),
+          MenuOptions(),
         ],
       ),
     );
@@ -61,82 +62,4 @@ class MyDrawer extends StatelessWidget {
   }
 }
 
-class MonitoredApplications extends StatelessWidget {
-  const MonitoredApplications({
-    Key key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SideBarMenuHeader('Aplicaciones monitoreadas'),
-          SideBarMenuItem('WhatsApp', Icon(Icons.chat)),
-          SideBarMenuItem('Gestionar', Icon(Icons.playlist_add)),
-          Divider(),
-          SideBarMenuHeader('Ayuda'),
-          SideBarMenuItem('Reiniciar servicio', Icon(Icons.refresh)),
-          SideBarMenuItem('Tengo un problema', Icon(Icons.help)),
-          Divider(),
-          SideBarMenuHeader('Acerca de'),
-          SideBarMenuItem('Eliminar la publicidad', Icon(Icons.shopping_cart)),
-          SideBarMenuItem('!Comparte esta aplicación!', Icon(Icons.share)),
-          SideBarMenuItem('Acerca de', Icon(Icons.info)),
-        ],
-      ),
-    );
-  }
-}
-
-class SideBarMenuHeader extends StatelessWidget {
-  final String headerText;
-
-  SideBarMenuHeader(this.headerText);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20.0),
-      child: Text(
-        headerText,
-        style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.grey.shade700),
-      ),
-    );
-  }
-}
-
-class SideBarMenuItem extends StatelessWidget {
-  final String option;
-  final Icon icon;
-
-  SideBarMenuItem(this.option, this.icon);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            margin: EdgeInsets.only(right: 15.0),
-            child: icon,
-          ),
-          Text(
-            option,
-            style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.shade800),
-          )
-        ],
-      ),
-    );
-  }
-}
