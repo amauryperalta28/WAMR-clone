@@ -7,9 +7,12 @@ class HelpScreen extends StatefulWidget {
 
 class _HelpScreenState extends State<HelpScreen> {
   List<HelpItem> _items = <HelpItem>[
-    HelpItem(header: "Header", body: "Body"),
-    HelpItem(header: "Header", body: "Body"),
-    HelpItem(header: "Header", body: "Body"),
+    HelpItem(header: "¿Como se recuperan los mensajes de texto?", body: "Body"),
+    HelpItem(header: "¿Como se recuperan los mensajes multimedia?", body: "Body"),
+    HelpItem(header: "Los mensajes de texto no se estan recuperando", body: "Body"),
+    HelpItem(header: "Los mensajes de multimedia no estan siendo recuperados", body: "Body"),
+    HelpItem(header: "La aplicacion ha dejado de funcionar", body: "Body"),
+    HelpItem(header: "No puedo ver mis mensajes enviados, solo los recibidos", body: "Body"),
   ];
 
   @override
@@ -26,15 +29,23 @@ class _HelpScreenState extends State<HelpScreen> {
                 _items[index].isExpanded = !_items[index].isExpanded;
               });
             },
-            children: _items.map((HelpItem e) {
+            children: _items.map((HelpItem item) {
               return ExpansionPanel(
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return Text(e.header);
+                  return ListTile(
+                    title: Text(
+                      item.header,
+                    ),
+                  );
                 },
-                isExpanded: e.isExpanded,
-                body: Text(e.body)
+                isExpanded: item.isExpanded,
+                body: ListTile(
+                  title: Text(
+                    item.header,
+                  ),
+                ),
               );
-            }),
+            }).toList(),
           )
         ],
       ),

@@ -11,7 +11,7 @@ class WamrMainScreen extends StatefulWidget {
 class _WamrMainScreenState extends State<WamrMainScreen> {
   bool circularStateMode = true;
   String headerTitle = 'Historial Notificaciones';
- 
+
   @override
   Widget build(BuildContext context) {
     var textStyles = Theme.of(context).textTheme;
@@ -49,8 +49,13 @@ class _WamrMainScreenState extends State<WamrMainScreen> {
         return values
             .map((e) => PopupMenuItem(
                   value: 1,
-                  child: Container(
-                      margin: EdgeInsets.only(right: 95.0), child: Text(e)),
+                  child:  ListTile(
+                         title: Container(child: Text(e), margin: EdgeInsets.only(right: 54),),
+                         onTap: (){
+                           Navigator.pushNamed(context, 'help');
+                         },),
+                         
+                  
                 ))
             .toList();
       },
@@ -66,12 +71,9 @@ class _WamrMainScreenState extends State<WamrMainScreen> {
 
     return TabBar(
       indicatorColor: Colors.white,
-      onTap: (int index){
-          headerTitle = headers[index];
-          setState(() {
-            
-          });
-        
+      onTap: (int index) {
+        headerTitle = headers[index];
+        setState(() {});
       },
       tabs: <Widget>[
         Padding(
