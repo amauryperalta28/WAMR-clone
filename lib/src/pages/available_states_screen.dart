@@ -54,31 +54,31 @@ class _AvailableStatesScreenState extends State<AvailableStatesScreen> {
 
   List<Widget> getWhatsapStates() {
     return <Widget>[
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
-      WhatsAppCircularState(),
+      WhatsAppCircularState('1'),
+      WhatsAppCircularState('2'),
+      WhatsAppCircularState('3'),
+      WhatsAppCircularState('4'),
+      WhatsAppCircularState('5'),
+      WhatsAppCircularState('6'),
+      WhatsAppCircularState('7'),
+      WhatsAppCircularState('8'),
+      WhatsAppCircularState('9'),
+      WhatsAppCircularState('10'),
     ];
   }
 
   List<Widget> getWhatsapSquareStates() {
     return <Widget>[
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
-      WhatsAppSquareState(),
+      WhatsAppSquareState('11'),
+      WhatsAppSquareState('12'),
+      WhatsAppSquareState('13'),
+      WhatsAppSquareState('14'),
+      WhatsAppSquareState('15'),
+      WhatsAppSquareState('16'),
+      WhatsAppSquareState('17'),
+      WhatsAppSquareState('18'),
+      WhatsAppSquareState('19'),
+      WhatsAppSquareState('20'),
     ];
   }
 }

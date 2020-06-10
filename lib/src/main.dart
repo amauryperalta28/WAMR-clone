@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wamr_clone/src/pages/help_screen.dart';
+import 'package:wamr_clone/src/pages/status_detail_page.dart';
 
 import 'pages/wamr_main_screen.dart';
 
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
       initialRoute: 'main',
       routes: {
         'main': (context)=> WamrMainScreen(),
-        'help': (context) => HelpScreen()
+        'help': (context) => HelpScreen(),
+        'status-detail': (context) => StatusDetailPage(),
       },
     );
   }
