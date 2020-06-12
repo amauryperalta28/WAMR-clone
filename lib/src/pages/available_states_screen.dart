@@ -12,34 +12,32 @@ class _AvailableStatesScreenState extends State<AvailableStatesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Column(
+          children: <Widget>[
+            buildAvailableStates(),
+            buildDownloadedMedia(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildAvailableStates() {
+    return Card(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'Estados disponibles',
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey),
-              ),
-              IconButton(
-                icon: Icon(Icons.swap_vert),
-                onPressed: () {
-                  circularStateMode = !circularStateMode;
-                  setState(() {});
-                },
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: buildAvailableStatesHeader(),
           ),
           Container(
             height: circularStateMode ? 80 : 200.0,
+            padding: EdgeInsets.only(bottom: 5.0),
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: circularStateMode
@@ -49,6 +47,43 @@ class _AvailableStatesScreenState extends State<AvailableStatesScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget buildAvailableStatesHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          'Estados disponibles',
+          style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black.withOpacity(0.6)),
+        ),
+        IconButton(
+          icon: Icon(Icons.swap_vert),
+          onPressed: () {
+            circularStateMode = !circularStateMode;
+            setState(() {});
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget buildDownloadedMediaHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          'Descargado',
+          style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black.withOpacity(0.6)),
+        ),
+      ],
     );
   }
 
@@ -80,5 +115,59 @@ class _AvailableStatesScreenState extends State<AvailableStatesScreen> {
       WhatsAppSquareState('19'),
       WhatsAppSquareState('20'),
     ];
+  }
+
+  Widget buildDownloadedMedia() {
+    return Container(
+      margin: EdgeInsets.only(top: 10.0),
+      child: Card(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: buildDownloadedMediaHeader(),
+            ),
+            Wrap(
+              alignment: WrapAlignment.spaceAround,
+
+              children: <Widget>[
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+                DownloadedMedia('https://images.unsplash.com/photo-1587613753310-0ba642887227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DownloadedMedia extends StatelessWidget {
+  final String url;
+
+  DownloadedMedia(this.url);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 180.0,
+        width: 130.0,
+        padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+        child: Container(
+          child: Image.network(
+            url,
+            fit: BoxFit.cover,
+          ),
+        ));
   }
 }
