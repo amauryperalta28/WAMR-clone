@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class StatusDetailPage extends StatelessWidget {
+  static final String routeName = 'status-detail';
+
   @override
   Widget build(BuildContext context) {
-    Random numberGen = Random();
-
-    int number = numberGen.nextInt(500);
+    String tag = ModalRoute.of(context).settings.arguments;
 
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -24,7 +22,7 @@ class StatusDetailPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Hero(
-                  tag: '1',
+                  tag: tag,
                   child: Image.asset(
                     'assets/images/unknown_user.png',
                     fit: BoxFit.cover,

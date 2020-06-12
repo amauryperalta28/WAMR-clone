@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wamr_clone/src/pages/status_detail_page.dart';
 
 class WhatsAppSquareState extends StatelessWidget {
   final String tag;
@@ -9,7 +10,7 @@ class WhatsAppSquareState extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, 'status-detail');
+       Navigator.pushNamed(context, StatusDetailPage.routeName, arguments: tag);
       },
       child: Container(
         constraints: BoxConstraints.expand(width: 150),

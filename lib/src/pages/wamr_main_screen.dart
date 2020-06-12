@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wamr_clone/src/pages/available_states_screen.dart';
 import 'package:wamr_clone/src/pages/deleted_messages_screen.dart';
+import 'package:wamr_clone/src/pages/help_screen.dart';
 import 'package:wamr_clone/src/pages/mydrawer.dart';
 
 class WamrMainScreen extends StatefulWidget {
+  static final String routeName = 'main';
+
   @override
   _WamrMainScreenState createState() => _WamrMainScreenState();
 }
@@ -52,7 +55,7 @@ class _WamrMainScreenState extends State<WamrMainScreen> {
                   child:  ListTile(
                          title: Container(child: Text(e), margin: EdgeInsets.only(right: 54),),
                          onTap: (){
-                           Navigator.pushNamed(context, 'help');
+                           Navigator.pushNamed(context, HelpScreen.routeName);
                          },),
                          
                   

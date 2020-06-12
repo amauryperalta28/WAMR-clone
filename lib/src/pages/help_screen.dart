@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatefulWidget {
+  static final String routeName = 'help';
+
   @override
   _HelpScreenState createState() => _HelpScreenState();
 }

@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: 'main',
+      initialRoute: WamrMainScreen.routeName,
       routes: {
-        'main': (context)=> WamrMainScreen(),
-        'help': (context) => HelpScreen(),
-        'status-detail': (context) => StatusDetailPage(),
+        WamrMainScreen.routeName: (context)=> WamrMainScreen(),
+        HelpScreen.routeName: (context) => HelpScreen(),
+        StatusDetailPage.routeName: (context) => StatusDetailPage(),
       },
     );
   }
