@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wamr_clone/src/models/whatsapp_status.dart';
 
 class StatusDetailPage extends StatelessWidget {
   static final String routeName = 'status-detail';
 
   @override
   Widget build(BuildContext context) {
-    String tag = ModalRoute.of(context).settings.arguments;
+    WhatsAppStatus status = ModalRoute.of(context).settings.arguments;
 
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -22,9 +23,9 @@ class StatusDetailPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Hero(
-                  tag: tag,
-                  child: Image.asset(
-                    'assets/images/unknown_user.png',
+                  tag: status.tag,
+                  child: Image.network(
+                    status.url,
                     fit: BoxFit.cover,
                   ),
                 )
